@@ -36,7 +36,17 @@ const Sidebar = () => {
                         : "text-gray-700"
                     }`}
                   >
-                    <Link href={link.route}>{link.label}</Link>
+                    <Link href={link.route} className="sidebar-link">
+                      <Image
+                        src={link.icon}
+                        alt="sidebar logo"
+                        width={24}
+                        height={24}
+                        className={`${isActive && "brightness-200"}`}
+                      />
+
+                      {link.label}
+                    </Link>
                   </li>
                 );
               })}
