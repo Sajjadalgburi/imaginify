@@ -21,3 +21,15 @@ export interface ImageInterface extends Document {
   createdAt?: Date;
   updatedAt?: Date;
 }
+
+// Define the interface for the User document
+export interface IUser extends Document {
+  clerkId: string;
+  email: string;
+  username: string;
+  photo: string;
+  firstName?: string;
+  lastName?: string;
+  planId?: string;
+  creditBalance?: number;
+}
