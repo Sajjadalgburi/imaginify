@@ -1,5 +1,5 @@
 import { Schema, model, models } from "mongoose";
-import { ImageInterface } from "@/interfaces/int";
+import { IImage } from "@/interfaces/index";
 
 /**
  * Represents the schema for an image in the database.
@@ -23,7 +23,7 @@ import { ImageInterface } from "@/interfaces/int";
  * @param createdAt - The date and time when the image was created.
  * @param updatedAt - The date and time when the image was last updated.
  */
-const ImageSchema = new Schema<ImageInterface>({
+const ImageSchema = new Schema<IImage>({
   title: {
     type: String,
     required: true,
@@ -76,6 +76,6 @@ const ImageSchema = new Schema<ImageInterface>({
 });
 
 // Create the Image model
-const Image = models?.Image || model<ImageInterface>("Image", ImageSchema);
+const Image = models?.Image || model<IImage>("Image", ImageSchema);
 
 export default Image;
