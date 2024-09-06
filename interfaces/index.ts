@@ -1,7 +1,7 @@
 import { Document } from "mongoose";
 
 // Define the interface for the Image document
-export interface ImageInterface extends Document {
+export interface IImage extends Document {
   title: string;
   transformationType: string;
   publicId: string;
@@ -28,8 +28,8 @@ export interface IUser extends Document {
   email: string;
   username: string;
   photo: string;
-  firstName?: string;
-  lastName?: string;
+  firstName?: string | null;
+  lastName?: string | null;
   planId?: string;
   creditBalance?: number;
 }
