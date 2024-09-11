@@ -7,18 +7,19 @@ import { transformationTypes } from "@/constants";
 import React from "react";
 import { getUserById } from "@/lib/actions/user.actions";
 
-import { auth } from "@clerk/nextjs/server";
+import { useAuth } from "@clerk/nextjs";
+
 import { redirect } from "next/navigation";
 
-const AddTransformationType = async ({
-  params: { type },
-}: SearchParamProps) => {
+const AddTransformationType = ({ params: { type } }: SearchParamProps) => {
   const transfromation = transformationTypes[type];
 
-  const { userId } = auth();
+  const auth = useAuth();
+  const { userId } = auth;
+
   if (!userId) redirect("/sign-in");
 
-  const user = await getUserById(userId as string);
+  const user = getUserById(userId as string);
 
   return (
     <>
