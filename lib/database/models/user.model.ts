@@ -1,7 +1,6 @@
 import { Schema, model, models } from "mongoose";
-import { IUser } from "@/interfaces/index";
 
-const UserSchema = new Schema<IUser>({
+const UserSchema = new Schema({
   clerkId: {
     type: String,
     required: true,
@@ -14,8 +13,8 @@ const UserSchema = new Schema<IUser>({
   },
   username: {
     type: String,
-    unique: true,
     required: true,
+    unique: true,
   },
   photo: {
     type: String,
@@ -37,6 +36,6 @@ const UserSchema = new Schema<IUser>({
   },
 });
 
-const User = models?.User || model<IUser>("User", UserSchema);
+const User = models?.User || model("User", UserSchema);
 
 export default User;
